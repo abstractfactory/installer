@@ -23,9 +23,162 @@ ApplicationWindow {
             text: "abstract factory ltd."
             anchors.top: parent.top
             anchors.left: parent.left
-            anchors.margins: 25
+            anchors.margins: 20
             color : "#777777"
             font.family: "Helvetica"
+        }
+
+        CheckBox {
+            anchors.bottom: p1.top
+            anchors.left: p1.left
+            anchors.bottomMargin: 60
+            style: CheckBoxStyle {
+                indicator: Rectangle {
+                        implicitWidth: 13
+                        implicitHeight: 13
+                        color: "#191919"
+                        // radius: 3
+                        // border.color: control.activeFocus ? "#191919" : "#7dd9f4"
+                        // border.width: 1
+                        Rectangle {
+                            visible: control.checked
+                            color: "#7dd9f4"
+                            // border.color: "#333"
+                            // radius: 1
+                            anchors.margins: 3
+                            anchors.fill: parent
+                        }
+                }
+                label: Text {
+                    text: "pifou"
+                    color: "#7dd9f4"
+                }
+            }
+        }
+
+        CheckBox {
+            anchors.bottom: p1.top
+            anchors.left: p1.left
+            anchors.bottomMargin: 40
+            style: CheckBoxStyle {
+                indicator: Rectangle {
+                        implicitWidth: 13
+                        implicitHeight: 13
+                        color: "#191919"
+                        // radius: 3
+                        // border.color: control.activeFocus ? "#191919" : "#7dd9f4"
+                        // border.width: 1
+                        Rectangle {
+                            visible: control.checked
+                            color: "#7dd9f4"
+                            // border.color: "#333"
+                            // radius: 1
+                            anchors.margins: 3
+                            anchors.fill: parent
+                        }
+                }
+                label: Text {
+                    text: "pigui"
+                    color: "#7dd9f4"
+                }
+            }
+        }
+
+        CheckBox {
+            anchors.bottom: p1.top
+            anchors.left: p1.left
+            anchors.bottomMargin: 20
+            style: CheckBoxStyle {
+                indicator: Rectangle {
+                        implicitWidth: 13
+                        implicitHeight: 13
+                        color: "#191919"
+                        // radius: 3
+                        // border.color: control.activeFocus ? "#191919" : "#7dd9f4"
+                        // border.width: 1
+                        Rectangle {
+                            visible: control.checked
+                            color: "#7dd9f4"
+                            // border.color: "#333"
+                            // radius: 1
+                            anchors.margins: 3
+                            anchors.fill: parent
+                        }
+                }
+                label: Text {
+                    text: "piapp"
+                    color: "#7dd9f4"
+                }
+            }
+        }
+
+
+
+        Text {
+            id: downloadText
+            text: "downloading..."
+            anchors.bottom: p1.top
+            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.margins: 8
+            color : "#7dd9f4"
+            font.family: "Helvetica"
+        }
+
+        ProgressBar {
+            id: p1
+            anchors.top: parent.top
+            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.margins: 120
+            value: .5
+            width: 220
+            height: 4
+            style: ProgressBarStyle {
+                background: Rectangle {
+                    // radius: 2
+                    color: "#191919"
+                    // border.color: "gray"
+                    // border.width: 1
+                    // implicitWidth: 100
+                    // implicitHeight: 24
+                }
+                progress: Rectangle {
+                    color: "#7dd9f4"
+                    // border.color: "steelblue"
+                }
+            }
+        }
+
+        Text {
+            text: "progress..."
+            anchors.top: p1.bottom
+            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.margins: 20
+            color : "#7dd9f4"
+            font.family: "Helvetica"
+        }
+
+        ProgressBar {
+            id: p2
+            anchors.top: p1.bottom
+            anchors.topMargin: 40
+            anchors.horizontalCenter: parent.horizontalCenter
+            value: .5
+            width: 220
+            height: 4
+            style: ProgressBarStyle {
+                background: Rectangle {
+                    // radius: 2
+                    color: "#191919"
+                    // border.color: "gray"
+                    // border.width: 1
+                    // implicitWidth: 100
+                    // implicitHeight: 24
+                }
+                progress: Rectangle {
+                    color: "#7dd9f4"
+                    // border.color: "steelblue"
+                }
+            }
         }
 
         TextField {
@@ -41,8 +194,8 @@ ApplicationWindow {
             echoMode: TextInput.Password
 
             style: TextFieldStyle {
-                textColor: "#424242"
-                placeholderTextColor: "#424242"
+                textColor: "#7dd9f4"
+                placeholderTextColor: "#7dd9f4"
                 background: Rectangle {
                     color: "#252525"
                 }
