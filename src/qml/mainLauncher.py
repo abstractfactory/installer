@@ -1,5 +1,6 @@
 ## abstract factory ltd.
 ## Installer (launcher)
+# https://github.com/abstractfactory/installer
 ####################################################################
 import sys
 from PyQt5.QtCore import QUrl
