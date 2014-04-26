@@ -8,8 +8,6 @@ care of the rest. :)
 
 import os
 import sys
-# import site
-import time
 import getpass
 import subprocess
 
@@ -35,8 +33,8 @@ _command = ['pip', 'install']
 _packages = [
     ('pifou_beta1', '(~69.9kb)'),
     ('pigui_beta1', '(~201kb)'),
-    ('piapp_beta1', '(~39.5kb)')
-    # ('pidep', '(~47.4mb) (Grab a coffee..)')
+    ('piapp_beta1', '(~39.5kb)'),
+    ('pidep', '(~47.4mb) (Grab a coffee..)')
 ]
 # END TODO
 
