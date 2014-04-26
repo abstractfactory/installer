@@ -1,1 +1,1 @@
-It worked!
+print "It worked!"
