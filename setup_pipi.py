@@ -39,8 +39,9 @@ _packages = [
     ('pifou_beta1', '(~69.9kb)'),
     ('pigui_beta1', '(~201kb)'),
     ('piapp_beta1', '(~39.5kb)'),
-    ('pidep', '(~47.4mb) (Grab a coffee..)')
+    ('pidep', '(~53.2mb) (Grab a coffee..)')
 ]
+
 # END TODO
 
 
@@ -149,7 +150,7 @@ if __name__ == '__main__':
         sys.exit()
 
     except OSError as e:
-        print("\n:(\n\n%s\n and the installer doesn't understand your OS"
+        print("\n:(\n\n%s and the installer doesn't understand your OS "
               "well enough to go look for itself." % e)
 
     # Keep console open after completed
