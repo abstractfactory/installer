@@ -9,28 +9,47 @@ ApplicationWindow{
 	width: 320
 	height: 320
 	title: "Installer"
-	// flags: Qt.SplashScreen
+	flags: Qt.FramelessWindowHint
 	maximumHeight: 320
 	maximumWidth: 320
 	minimumHeight: 320
 	minimumWidth: 320
+	color: "transparent"
 
 	Logic {
 		id: logic
 	}
 
+    BorderImage {
+        anchors.fill: bg
+        anchors { leftMargin: -6; topMargin: -6; rightMargin: -6; bottomMargin: -6 }
+        border { left: 15; top: 15; right: 15; bottom: 15 }
+        source: "content/shadow.png"; smooth: true
+    }
+
 	Rectangle {
-		width: parent.width
-		height: parent.height
+		id: bg
+		anchors.centerIn: parent
+		width: parent.width-10
+		height: parent.height-10
 		color: Style.staticTextColor
-		z: -1
+		radius: 2
+		// z: -1
 
 		MouseArea {
 			anchors.fill: parent
-			onClicked: {
-				parent.forceActiveFocus()
-				// parent.focus = !parent.focus
+			property real lastMouseX: 0
+			property real lastMouseY: 0
+			acceptedButtons: Qt.LeftButton
+			onPressed: {
+				if(mouse.button == Qt.LeftButton){
+					parent.forceActiveFocus()
+					lastMouseX = mouseX
+					lastMouseY = mouseY
+				}
 			}
+			onMouseXChanged: root.x += (mouseX - lastMouseX)
+			onMouseYChanged: root.y += (mouseY - lastMouseY)
 		}
 		Text {
 			id: installerText
@@ -83,9 +102,9 @@ ApplicationWindow{
 			anchors.topMargin: 35
 			width: 100
 			onClicked: {
-				logic.password = pass3.text	    		
-				logic.installProgram()
-				result.text = logic.password
+				// logic.password = pass3.text	    		
+				// logic.installProgram()
+				// result.text = logic.password
 				// logic.printPassword()
 				// print("list: " + logic.installList[1])
 			}

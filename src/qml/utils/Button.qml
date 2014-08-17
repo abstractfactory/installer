@@ -1,27 +1,39 @@
 import QtQuick 2.0
+import QtQuick.Controls 1.0
+import QtQuick.Controls.Styles 1.0
 
 import "../js/style.js" as Style
 
 Item {
     id:button
-    property alias label: buttonLabel.text
+    property string labelColor: "#ffffff"
+    property string buttonColor: Style.buttonBgColor
+    property string labelText: 'Wrong Path (Correct it!)'
+    property bool mainEnabled: true
     signal clicked()
     width: 75
     height: 25
+    enabled: mainEnabled
 
-    Rectangle {
+    Button {
         id: buttonBg
         anchors.centerIn: parent
         width: parent.width
         height: parent.height
-        color: Style.buttonBgColor
-        border.color: Style.buttonBgColor
+        enabled: mainEnabled
 
-        Text {
-            id: buttonLabel
-            anchors.centerIn: parent
-            text: "default"
-            color: Style.buttonLabelColor
+        style: ButtonStyle {
+            background: Rectangle {
+                color: buttonColor  
+                border.color: Style.buttonBgColor           
+            }
+            label: Text {
+                horizontalAlignment: Text.AlignHCenter
+                text: labelText
+                color: labelColor
+                font.family: Style.font1
+                font.pointSize : 10
+            }
         }
 
         MouseArea {
@@ -29,23 +41,23 @@ Item {
             anchors.fill: parent
             hoverEnabled: true
             onEntered: {
-                buttonBg.color= Style.buttonLabelColor
-                buttonLabel.color= Style.buttonBgColor
+                buttonColor = Style.buttonLabelColor
+                labelColor= Style.buttonBgColor
             }
             onExited: {
-                buttonBg.color= Style.buttonBgColor
-                buttonLabel.color= Style.buttonLabelColor
+                buttonColor = Style.buttonBgColor
+                labelColor= Style.lightColor
+            }
+            onPressed: {
+                buttonColor = Style.checkBoxIndFgColor              
+                labelColor= Style.buttonBgColor              
+            }
+            onReleased: {
+                buttonColor = Style.buttonBgColor
+                labelColor= Style.lightColor          
             }
             onClicked: {
                 button.clicked()
-            }
-            onPressed: {
-                buttonBg.color= Style.checkBoxIndFgColor
-                buttonLabel.color= Style.buttonLabelColor                
-            }
-            onReleased: {
-                buttonBg.color= Style.buttonLabelColor
-                buttonLabel.color= Style.buttonBgColor              
             }
         }
     }

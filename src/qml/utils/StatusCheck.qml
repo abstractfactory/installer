@@ -8,7 +8,7 @@ Item {
     id:statusCheck
     property var checkBoxLabel: "default"
     property alias checked: check.checked
-    width: 100
+    width: 16
     height: 16
 
     CheckBox {
@@ -21,8 +21,8 @@ Item {
         // anchors.bottomMargin: 5
         style: CheckBoxStyle {
             indicator: Rectangle {
-                    implicitWidth: 13
-                    implicitHeight: 13
+                    implicitWidth: 9
+                    implicitHeight: 9
                     color: Style.checkBoxIndBgColor
                     // radius: 3
                     // border.color: control.activeFocus ? "#191919" : "#7dd9f4"
@@ -32,7 +32,7 @@ Item {
                         color: Style.checkBoxIndFgColor
                         // border.color: "#333"
                         // radius: 1
-                        anchors.margins: 3
+                        anchors.margins: 2
                         anchors.fill: parent
                     }
             }
@@ -40,6 +40,7 @@ Item {
                 text: checkBoxLabel
                 anchors.centerIn: parent
                 color: Style.lightColor
+                font.family: Style.font1
             }
         }
     }

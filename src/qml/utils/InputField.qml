@@ -9,6 +9,8 @@ Item {
 	property alias placeholderText: input.placeholderText
 	property alias text: input.text
 	property alias echoMode: input.echoMode
+	property alias enabled: input.enabled
+	property color textColor1: Style.textFieldTextColor
 	property bool flag: false
 	width: 220
 	height: 25
@@ -17,11 +19,11 @@ Item {
 	states: [
 		State {
 			name: "before"
-			PropertyChanges { target: input; width: 200; }
+			PropertyChanges { target: input; width: (parent.width - 20); }
 		},
 		State {
 			name: "after"
-			PropertyChanges { target: input; width: 230; }
+			PropertyChanges { target: input; width: (parent.width + 20); }
 		}
 	]
 
@@ -36,20 +38,20 @@ Item {
 	TextField {
 		id: input
 		anchors.centerIn: parent
-		width: 200
+		width: parent.width - 20
 		height: parent.height
 		text: ""
 		placeholderText : "Enter Your name..."
 		font.family: Style.font1
-		font.pointSize: Style.fontSize
+		font.pointSize: Style.fontSize		
 		// activeFocusOnPress: false
 		// focus: true
 		// echoMode: TextInput.Password
 		// activeFocusOnPress: false
 
 		style: TextFieldStyle {
-			textColor: Style.textFieldTextColor
-			placeholderTextColor: Style.textFieldTextColor
+			textColor: enabled? textColor1: "#474747"
+			placeholderTextColor: "#474747"
 			background: Rectangle {
 				color: Style.textFieldBgColor
 			}
@@ -89,11 +91,12 @@ Item {
 			Text {
 				id: eye
 				anchors.centerIn: parent
-				text: "\uE18B" 
+				// text: "\uE18B"	//regular eye
+				text: "\uE052"    //bold eye
 				// text: "\u004c" 
 				font.family: myFont.name
 				font.pointSize: 10
-				font.bold: true
+				// font.bold: true
 				color: Style.checkBoxIndFgColor
 			}
 			MouseArea {
@@ -140,5 +143,4 @@ Item {
 		if(input.text != "" && flag == true)
 			passEye.visible = true
 	}
-
 }

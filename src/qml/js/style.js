@@ -11,6 +11,7 @@ var buttonBgColor = "#191919"
 var buttonLabelColor = "#575757"
 var checkBoxIndBgColor = "#191919"
 var checkBoxIndFgColor = "#7dd9f4"
+var checkBoxsRectBgColor = "#303030"
 var font1 = "Consolas"
 var fontSize = 10
 
